@@ -56,6 +56,24 @@ const Hero = () => {
         style={{ transform: `scale(${scale.large})` }}
       />
       <div className="small-video-container">
+        <div className="main-text">
+          <h2>Let's make your car look line new.</h2>
+          <p>
+            Use our new customer dashboard to intuitively book your next
+            appointment
+          </p>
+          <button>Book Now</button>
+        </div>
+        <div className="secondary-text">
+          <div className="block">
+            <h2>15+</h2>
+            <p>years of experience</p>
+          </div>
+          <div className="block">
+            <h2>500+</h2>
+            <p>happy clients</p>
+          </div>
+        </div>
         <video
           src="./assets/videos/beach.mp4"
           autoPlay
