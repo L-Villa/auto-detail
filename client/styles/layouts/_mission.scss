@@ -1,0 +1,24 @@
+.mission-section {
+  position: relative;
+  margin: 5rem 0;
+  .tagline {
+    font-size: 4rem;
+    color: var(--color-primary);
+    width: 35%;
+    line-height: 1;
+    font-weight: 600;
+  }
+  .mission-description {
+    width: 30%;
+    margin-top: 0.5rem;
+    p {
+      margin-bottom: 1.5rem;
+      line-height: 2;
+      color: var(--color-gray);
+    }
+    a {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 const How = () => {
   return (
-    <section>
+    <section className="how-section">
       <div className="content">
         <div className="container">
           <div className="description">
