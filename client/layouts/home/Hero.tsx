@@ -57,7 +57,7 @@ const Hero = () => {
       />
       <div className="small-video-container">
         <div className="main-text">
-          <h2>Let's make your car look line new.</h2>
+          <h2>Let's make your car look like new.</h2>
           <p>
             Use our new customer dashboard to intuitively book your next
             appointment
