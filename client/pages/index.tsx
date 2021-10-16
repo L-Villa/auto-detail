@@ -1,11 +1,16 @@
 import type { NextPage } from "next";
 import Hero from "../layouts/home/Hero";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.scss";
+import How from "../layouts/home/How";
+import Mission from "../layouts/home/Mission";
 
 const Home: NextPage = () => {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <How />
+      <Mission />
+    </>
+  );
 };
 
 export default Home;

@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 
 const Hero = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const init1 = 1.15;
-  const init2 = 0.85;
-  const [pos, setPos] = useState({ y1: init1, y2: init2 });
+  const initialScaleLarge = 1.15;
+  const initialScaleSmall = 0.85;
+  const [scale, setScale] = useState({
+    large: initialScaleLarge,
+    small: initialScaleSmall,
+  });
 
   // map number between new range
   const map = (
@@ -17,30 +20,21 @@ const Hero = () => {
     return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
   };
 
-  const handleMouseMove: { (e: React.MouseEvent): void } = (e) => {
-    // Scale background image based on mouse position (both x and y axis)
+  const handleBackgroundScaling: { (e: React.MouseEvent): void } = (e) => {
+    // scale background image based on mouse position (both x and y axis)
     const { clientX, clientY } = e;
-    const diagonalClient = Math.sqrt(clientX * clientX + clientY * clientY);
     const w = dimensions.width / 2;
     const h = dimensions.height / 2;
-    const diagonal = Math.sqrt(w * w + h * h);
-    const x = diagonal - diagonalClient;
 
-    const large = Math.sqrt(
-      map(Math.abs(x), 0, diagonal, 1, init1) *
-        map(Math.abs(x), 0, diagonal, 1, init1) +
-        map(Math.abs(x), 0, diagonal, 1, init1) *
-          map(Math.abs(x), 0, diagonal, 1, init1)
-    );
-    const small = Math.sqrt(
-      map(Math.abs(x), 0, diagonal, 1, init2) *
-        map(Math.abs(x), 0, diagonal, 1, init2) +
-        map(Math.abs(x), 0, diagonal, 1, init2) *
-          map(Math.abs(x), 0, diagonal, 1, init2)
-    );
-    setPos({
-      y1: large,
-      y2: small,
+    // x and y dependance
+    const total = w + h;
+    const diff = total - (clientX + clientY);
+    const largeBackground = map(Math.abs(diff), 0, total, 1, initialScaleLarge);
+    const smallBackground = map(Math.abs(diff), 0, total, 1, initialScaleSmall);
+
+    setScale({
+      large: largeBackground,
+      small: smallBackground,
     });
   };
 
@@ -50,21 +44,42 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero-section" onMouseMove={(e) => handleMouseMove(e)}>
+    <section
+      className="hero-section"
+      onMouseMove={(e) => handleBackgroundScaling(e)}
+    >
       <video
         src="./assets/videos/beach.mp4"
         autoPlay
         loop
         muted
-        style={{ transform: `scale(${pos.y1})` }}
+        style={{ transform: `scale(${scale.large})` }}
       />
       <div className="small-video-container">
+        <div className="main-text">
+          <h2>Let's make your car look line new.</h2>
+          <p>
+            Use our new customer dashboard to intuitively book your next
+            appointment
+          </p>
+          <button>Book Now</button>
+        </div>
+        <div className="secondary-text">
+          <div className="block">
+            <h2>15+</h2>
+            <p>years of experience</p>
+          </div>
+          <div className="block">
+            <h2>500+</h2>
+            <p>happy clients</p>
+          </div>
+        </div>
         <video
           src="./assets/videos/beach.mp4"
           autoPlay
           loop
           muted
-          style={{ transform: `scale(${pos.y2})` }}
+          style={{ transform: `scale(${scale.small})` }}
         />
       </div>
     </section>
