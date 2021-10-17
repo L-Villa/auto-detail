@@ -16,7 +16,9 @@ const Card: React.FC<ICardProps> = ({ title, price, options, active }) => {
       </div>
       <ul className="card-options" role="list">
         {options.map((option) => (
-          <li className="card-option">{option}</li>
+          <li key={option} className="card-option">
+            {option}
+          </li>
         ))}
       </ul>
       <button className="large">Book Now</button>
