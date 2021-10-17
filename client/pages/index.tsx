@@ -3,6 +3,7 @@ import Hero from "../layouts/home/Hero";
 import How from "../layouts/home/How";
 import Images from "../layouts/home/Images";
 import Mission from "../layouts/home/Mission";
+import Pricing from "../layouts/home/Pricing";
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
       <How />
       <Mission />
       <Images />
+      <Pricing />
     </>
   );
 };

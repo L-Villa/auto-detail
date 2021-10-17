@@ -45,7 +45,7 @@ const Hero = () => {
 
   return (
     <section
-      className="hero-section"
+      className="hero-section no-margin"
       onMouseMove={(e) => handleBackgroundScaling(e)}
     >
       <video
