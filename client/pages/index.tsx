@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Footer from "../layouts/home/Footer";
 import Hero from "../layouts/home/Hero";
 import How from "../layouts/home/How";
 import Images from "../layouts/home/Images";
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       <Images />
       <Pricing />
       <Stats />
+      <Footer />
     </>
   );
 };
