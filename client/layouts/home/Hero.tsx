@@ -56,7 +56,7 @@ const Hero = () => {
         style={{ transform: `scale(${scale.large})` }}
       />
       <div className="small-video-container">
-        <div className="main-text">
+        {/* <div className="main-text">
           <h2>Let's make your car look like new.</h2>
           <p>
             Use our new customer dashboard to intuitively book your next
@@ -73,7 +73,7 @@ const Hero = () => {
             <h2>500+</h2>
             <p>happy clients</p>
           </div>
-        </div>
+        </div> */}
         <video
           src="./assets/videos/beach.mp4"
           autoPlay
