@@ -70,6 +70,10 @@ const Hero = () => {
               <h4>3k+</h4>
               <div className="sub">happy customers</div>
             </div>
+            <div className="block">
+              <h4>3k+</h4>
+              <div className="sub">happy customers</div>
+            </div>
           </div>
         </div>
         <div className="main-text">
