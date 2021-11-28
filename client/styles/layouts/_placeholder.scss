@@ -1,0 +1,30 @@
+.empty-div {
+  position: relative;
+  width: 100vw;
+  height: 150vh;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  .circle {
+    position: absolute;
+    bottom: 0;
+    height: 125px;
+    width: 35%;
+    background: white;
+    border-radius: 100%;
+    opacity: 1;
+    display: grid;
+    place-items: center;
+  }
+  .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 3rem;
+    font-size: 24rem;
+    line-height: 0.8;
+    line-height: 0.7;
+    font-family: serif;
+    color: var(--color-primary);
+  }
+}

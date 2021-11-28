@@ -1,4 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  useViewportScroll,
+  useElementScroll,
+  useTransform,
+} from "framer-motion";
 
 const Hero = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -43,10 +49,18 @@ const Hero = () => {
     setDimensions({ width: innerWidth, height: innerHeight });
   }, []);
 
+  // scroll based animation
+  const { scrollYProgress } = useViewportScroll();
+  const x = useTransform(scrollYProgress, [0, 0.3], [0, 2000]);
+  const negX = useTransform(scrollYProgress, [0, 0.3], [0, -2000]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const delayedOpacity = useTransform(scrollYProgress, [0.075, 0.2], [1, 0]);
+
   return (
-    <section
+    <motion.section
       className="hero-section no-margin"
       onMouseMove={(e) => handleBackgroundScaling(e)}
+      style={{ opacity: delayedOpacity }}
     >
       <video
         src="./assets/videos/beach.mp4"
@@ -56,7 +70,7 @@ const Hero = () => {
         style={{ transform: `scale(${scale.large})` }}
       />
       <div className="small-video-container">
-        <div className="secondary-text">
+        <motion.div className="secondary-text" style={{ opacity: opacity }}>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil,
             neque tempora repellendus autem omnis provident
@@ -75,10 +89,10 @@ const Hero = () => {
               <div className="sub">happy customers</div>
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className="main-text">
-          <h2>Detail</h2>
-          <h2>Driven</h2>
+          <motion.h2 style={{ x }}>Detail</motion.h2>
+          <motion.h2 style={{ x: negX }}>Driven</motion.h2>
         </div>
         <video
           src="./assets/videos/beach.mp4"
@@ -88,7 +102,7 @@ const Hero = () => {
           style={{ transform: `scale(${scale.small})` }}
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 
