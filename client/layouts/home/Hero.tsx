@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  motion,
-  useViewportScroll,
-  useElementScroll,
-  useTransform,
-} from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 const Hero = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -62,7 +57,9 @@ const Hero = () => {
       onMouseMove={(e) => handleBackgroundScaling(e)}
       style={{ opacity: delayedOpacity }}
     >
-      <video
+      <motion.video
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 1.5 } }}
         src="./assets/videos/beach.mp4"
         autoPlay
         loop
@@ -70,7 +67,12 @@ const Hero = () => {
         style={{ transform: `scale(${scale.large})` }}
       />
       <div className="small-video-container">
-        <motion.div className="secondary-text" style={{ opacity: opacity }}>
+        <motion.div
+          className="secondary-text"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 2.6 } }}
+          style={{ opacity }}
+        >
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil,
             neque tempora repellendus autem omnis provident
@@ -91,10 +93,24 @@ const Hero = () => {
           </div>
         </motion.div>
         <div className="main-text">
-          <motion.h2 style={{ x }}>Detail</motion.h2>
-          <motion.h2 style={{ x: negX }}>Driven</motion.h2>
+          <motion.h2
+            initial={{ x: -1500 }}
+            animate={{ x: 0, transition: { duration: 2 } }}
+            style={{ x }}
+          >
+            Detail
+          </motion.h2>
+          <motion.h2
+            initial={{ x: 1500 }}
+            animate={{ x: 0, transition: { duration: 2 } }}
+            style={{ x: negX }}
+          >
+            Driven
+          </motion.h2>
         </div>
-        <video
+        <motion.video
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 1.5 } }}
           src="./assets/videos/beach.mp4"
           autoPlay
           loop
