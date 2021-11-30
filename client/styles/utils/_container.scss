@@ -3,7 +3,7 @@
 .container {
   margin: 0 auto;
   position: relative;
-  width: auto;
+  width: 80vw;
   height: 100%;
   @include breakpoint-down(small) {
     max-width: 960px;
