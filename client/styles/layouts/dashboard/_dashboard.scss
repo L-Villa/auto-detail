@@ -1,0 +1,76 @@
+.dashboard {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  .sidebar {
+    position: relative;
+    height: 100%;
+    width: 82px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);
+    &.open {
+      width: 10%;
+    }
+    .sidebar-toggle {
+      position: relative;
+      top: 0;
+      left: 0;
+      background: rgb(204, 204, 204);
+      width: 50px;
+      height: 50px;
+      margin: 1rem;
+      &:hover {
+        background: rgb(119, 119, 119);
+      }
+    }
+    .sidebar-options {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      top: 35%;
+      width: 100%;
+      transform: translate(0, -50%);
+      .sidebar-option {
+        display: flex;
+        position: relative;
+        margin: 1rem 0;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+        .sidebar-icon {
+          svg {
+            height: 40px;
+            width: 40px;
+            fill: rgb(190, 190, 190);
+            margin: 0.5rem 1.2rem;
+            &:hover {
+              fill: grey;
+            }
+          }
+        }
+        .option-text {
+          width: 100%;
+          opacity: 1;
+          transition: all 0.2s ease-in-out;
+          &.hidden {
+            width: 0;
+            opacity: 0;
+          }
+        }
+        &.active {
+          background: rgb(243, 243, 243);
+          &::after {
+            content: "";
+            // position: absolute;
+            height: 100%;
+            width: 6px;
+            background: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+}
