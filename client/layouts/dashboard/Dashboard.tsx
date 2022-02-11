@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Koi from "../../public/assets/vectors/koi";
+import { Menu, Home, User, Settings } from "../../public/assets/vectors/icons";
 
 const Sidebar = () => {
   const [status, setStatus] = useState(true);
@@ -8,23 +8,25 @@ const Sidebar = () => {
       <div
         className="sidebar-toggle"
         onClick={() => setStatus((curr) => !curr)}
-      ></div>
+      >
+        <Menu />
+      </div>
       <div className="sidebar-options">
         <div className="sidebar-option active">
           <div className="sidebar-icon">
-            <Koi />
+            <Home />
           </div>
           <div className={`option-text ${!status && "hidden"}`}>Home</div>
         </div>
         <div className="sidebar-option">
           <div className="sidebar-icon">
-            <Koi />
+            <Settings />
           </div>
           <div className={`option-text ${!status && "hidden"}`}>Settings</div>
         </div>
         <div className="sidebar-option">
           <div className="sidebar-icon">
-            <Koi />
+            <User />
           </div>
           <div className={`option-text ${!status && "hidden"}`}>Account</div>
         </div>

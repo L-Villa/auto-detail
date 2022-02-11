@@ -11,19 +11,22 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);
-    &.open {
-      width: 10%;
-    }
     .sidebar-toggle {
       position: relative;
       top: 0;
       left: 0;
-      background: rgb(204, 204, 204);
-      width: 50px;
-      height: 50px;
-      margin: 1rem;
+      width: 30px;
+      height: 30px;
+      margin: 1.5rem;
+      svg {
+        height: 100%;
+        width: 100%;
+        fill: rgb(204, 204, 204);
+      }
       &:hover {
-        background: rgb(119, 119, 119);
+        svg {
+          fill: rgb(119, 119, 119);
+        }
       }
     }
     .sidebar-options {
@@ -42,10 +45,10 @@
         overflow: hidden;
         .sidebar-icon {
           svg {
-            height: 40px;
-            width: 40px;
+            height: 30px;
+            width: 30px;
             fill: rgb(190, 190, 190);
-            margin: 0.5rem 1.2rem;
+            margin: 0.5rem 1.5rem;
             &:hover {
               fill: grey;
             }
@@ -64,11 +67,23 @@
           background: rgb(243, 243, 243);
           &::after {
             content: "";
-            // position: absolute;
             height: 100%;
             width: 6px;
             background: var(--color-primary);
           }
+          .sidebar-icon {
+            svg {
+              fill: var(--color-primary);
+            }
+          }
+        }
+      }
+    }
+    &.open {
+      width: 10%;
+      .sidebar-toggle {
+        svg {
+          fill: var(--color-primary);
         }
       }
     }
