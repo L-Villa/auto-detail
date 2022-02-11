@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { Menu, Home, User, Settings } from "../../public/assets/vectors/icons";
 
-const Sidebar = () => {
+export const Sidebar = () => {
   const [status, setStatus] = useState(true);
+  const { pathname } = useRouter();
+
   return (
     <div className={`sidebar ${status && "open"}`}>
       <div
@@ -12,24 +16,40 @@ const Sidebar = () => {
         <Menu />
       </div>
       <div className="sidebar-options">
-        <div className="sidebar-option active">
-          <div className="sidebar-icon">
-            <Home />
-          </div>
-          <div className={`option-text ${!status && "hidden"}`}>Home</div>
-        </div>
-        <div className="sidebar-option">
-          <div className="sidebar-icon">
-            <Settings />
-          </div>
-          <div className={`option-text ${!status && "hidden"}`}>Settings</div>
-        </div>
-        <div className="sidebar-option">
-          <div className="sidebar-icon">
-            <User />
-          </div>
-          <div className={`option-text ${!status && "hidden"}`}>Account</div>
-        </div>
+        <Link href="/dashboard">
+          <a
+            className={`sidebar-option ${pathname == "/dashboard" && "active"}`}
+          >
+            <div className="sidebar-icon">
+              <Home />
+            </div>
+            <div className={`option-text ${!status && "hidden"}`}>Home</div>
+          </a>
+        </Link>
+        <Link href="/dashboard/settings">
+          <a
+            className={`sidebar-option ${
+              pathname == "/dashboard/settings" && "active"
+            }`}
+          >
+            <div className="sidebar-icon">
+              <Settings />
+            </div>
+            <div className={`option-text ${!status && "hidden"}`}>Settings</div>
+          </a>
+        </Link>
+        <Link href="/dashboard/account">
+          <a
+            className={`sidebar-option ${
+              pathname == "/dashboard/account" && "active"
+            }`}
+          >
+            <div className="sidebar-icon">
+              <User />
+            </div>
+            <div className={`option-text ${!status && "hidden"}`}>Account</div>
+          </a>
+        </Link>
       </div>
     </div>
   );
