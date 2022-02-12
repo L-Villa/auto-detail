@@ -3,6 +3,7 @@
   height: 100vh;
   width: 100vw;
   z-index: 9999;
+  display: flex;
   .sidebar {
     position: relative;
     height: 100%;
@@ -11,6 +12,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
     .sidebar-toggle {
       position: relative;
       top: 0;
@@ -57,10 +59,12 @@
         .option-text {
           width: 100%;
           opacity: 1;
-          transition: all 0.2s ease-in-out;
+          transition: all 0.3s ease-in-out;
+          margin-right: 100px;
           &.hidden {
             width: 0;
             opacity: 0;
+            margin-right: 0px;
           }
         }
         &.active {
@@ -80,12 +84,18 @@
       }
     }
     &.open {
-      width: 10%;
+      width: 250px;
       .sidebar-toggle {
         svg {
           fill: var(--color-primary);
         }
       }
     }
+  }
+  .dashboard-content {
+    position: relative;
+    top: 100px;
+    margin: 2rem;
+    flex-shrink: 2;
   }
 }
