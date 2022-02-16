@@ -55,6 +55,7 @@
         opacity: 1;
         transition: all 0.3s ease-in-out;
         margin-right: 100px;
+        color: rgb(190, 190, 190);
         &.hidden {
           width: 0;
           opacity: 0;
@@ -63,10 +64,15 @@
       }
       &.active {
         background: rgb(243, 243, 243);
+        .option-text {
+          color: var(--color-primary);
+        }
         &::after {
           content: "";
+          position: absolute;
+          right: 0;
           height: 100%;
-          width: 6px;
+          width: 3px;
           background: var(--color-primary);
         }
         .sidebar-icon {

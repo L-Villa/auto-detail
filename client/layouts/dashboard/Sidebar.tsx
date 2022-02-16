@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Menu, Home, User, Settings } from "../../public/assets/vectors/icons";
+import {
+  Menu,
+  Home,
+  User,
+  Settings,
+  Car,
+} from "../../public/assets/vectors/icons";
 
 const Sidebar = ({ status, setStatus }: any) => {
-  // const [status, setStatus] = useState(true);
   const {
-    pathname,
     query: { param },
   } = useRouter();
 
@@ -22,6 +26,14 @@ const Sidebar = ({ status, setStatus }: any) => {
               <Home />
             </div>
             <div className={`option-text ${!status && "hidden"}`}>Home</div>
+          </a>
+        </Link>
+        <Link href="/dashboard/vehicles">
+          <a className={`sidebar-option ${param == "vehicles" && "active"}`}>
+            <div className="sidebar-icon">
+              <Car />
+            </div>
+            <div className={`option-text ${!status && "hidden"}`}>Vehicles</div>
           </a>
         </Link>
         <Link href="/dashboard/settings">
