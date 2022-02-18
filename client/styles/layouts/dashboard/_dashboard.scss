@@ -13,7 +13,7 @@
       flex-wrap: wrap;
       .dashboard-card {
         position: relative;
-        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
         padding: 2rem;
         margin: 1rem;
         flex-shrink: 0;
@@ -46,6 +46,23 @@
             .num {
               font-size: 1.5rem;
               font-weight: 600;
+            }
+          }
+        }
+        &.history-card {
+          .order {
+            display: flex;
+            align-items: center;
+            margin: 1rem;
+            .data {
+              margin: 1rem;
+              &.icon {
+                border: 2px solid var(--color-primary);
+                border-radius: 20%;
+                height: 30px;
+                width: 30px;
+                margin-right: 0;
+              }
             }
           }
         }

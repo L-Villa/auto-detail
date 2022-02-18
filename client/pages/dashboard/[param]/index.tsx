@@ -20,6 +20,7 @@ const Home = () => {
     <div className="dashboard-container">
       <QuickOrder />
       <Weather />
+      <History />
     </div>
   );
 };
@@ -38,7 +39,7 @@ const QuickOrder = () => {
 };
 
 const Weather = () => {
-  const [days, setdays] = useState([
+  const [days, setDays] = useState([
     "Fri",
     "Sat",
     "Sun",
@@ -54,6 +55,41 @@ const Weather = () => {
           <div className="icon"></div>
           <div className="num">{25 + index}</div>
           <div className="day">{day}</div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const History = () => {
+  const [orders, setOrders] = useState([
+    {
+      type: "wash",
+      name: "Deluxe",
+      vehicle: "4-Door Sedan",
+      price: 40,
+    },
+    {
+      type: "wash",
+      name: "Deluxe",
+      vehicle: "4-Door Sedan",
+      price: 40,
+    },
+    {
+      type: "wash",
+      name: "Deluxe",
+      vehicle: "4-Door Sedan",
+      price: 40,
+    },
+  ]);
+  return (
+    <div className="dashboard-card history-card">
+      {orders.map(({ name, vehicle, price }, index) => (
+        <div className="order">
+          <div className="data icon"></div>
+          <div className="data name">{name}</div>
+          <div className="data vehicle">{vehicle}</div>
+          <div className="data price">{price}</div>
         </div>
       ))}
     </div>
