@@ -21,6 +21,7 @@ const Home = () => {
       <QuickOrder />
       <Weather />
       <History />
+      <Vehicles />
     </div>
   );
 };
@@ -64,34 +65,112 @@ const Weather = () => {
 const History = () => {
   const [orders, setOrders] = useState([
     {
+      id: 1453,
       type: "wash",
-      name: "Deluxe",
-      vehicle: "4-Door Sedan",
-      price: 40,
+      name: "Platinum",
+      vehicle: "White Sedan",
+      amount: 80,
     },
     {
+      id: 2453,
       type: "wash",
-      name: "Deluxe",
-      vehicle: "4-Door Sedan",
-      price: 40,
+      name: "Gold",
+      vehicle: "Black SUV",
+      amount: 40,
     },
     {
+      id: 3438,
       type: "wash",
-      name: "Deluxe",
-      vehicle: "4-Door Sedan",
-      price: 40,
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 60,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
     },
   ]);
   return (
-    <div className="dashboard-card history-card">
-      {orders.map(({ name, vehicle, price }, index) => (
-        <div className="order">
-          <div className="data icon"></div>
-          <div className="data name">{name}</div>
-          <div className="data vehicle">{vehicle}</div>
-          <div className="data price">{price}</div>
+    <div className="history-card">
+      <div className="heading">Transaction History</div>
+      <table>
+        <tr>
+          <th className="data">#</th>
+          <th className="data">Package</th>
+          <th className="data">Vehicle</th>
+          <th className="data">Amount</th>
+        </tr>
+        {orders.map(({ id, name, vehicle, amount }, index) => (
+          <tr className="order" key={index}>
+            <td className="data icon">#{id}</td>
+            <td className="data name">{name}</td>
+            <td className="data vehicle">{vehicle}</td>
+            <td className="data amount">${amount}</td>
+          </tr>
+        ))}
+      </table>
+    </div>
+  );
+};
+
+const Vehicles = () => {
+  const [vehicles, setVehicles] = useState([
+    "Fri",
+    "Sat",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thur",
+  ]);
+  return (
+    <div className="history-card">
+      <div className="heading">Vehicles</div>
+      <div className="vehicle">
+        <div className="car">
+          <div className="title">Custom Car Name</div>
+          <div className="subtitle">7XLE408</div>
+          <div className="stats">
+            <div className="block">
+              <div className="sub">Times washed</div>
+              <h4>12</h4>
+            </div>
+            <div className="block">
+              <div className="sub">Days since last wash</div>
+              <h4>3</h4>
+            </div>
+            <div className="block">
+              <div className="sub">Days since last wash</div>
+              <h4>3</h4>
+            </div>
+          </div>
+          <img src="/assets/images/astonMartin.png"></img>
+          <div className="buttons">
+            <button className="filled">Wash Now</button>
+            <button className="border">Edit Vehicle</button>
+          </div>
         </div>
-      ))}
+        <div className="info-container">
+          <div className="calendar"></div>
+          <div className="information">
+            <div className="data type">
+              <span>Year:</span> 2020
+            </div>
+            <div className="data plate">
+              <span>Make:</span> Toyota
+            </div>
+            <div className="data plate">
+              <span>Model:</span> Camry
+            </div>
+            <div className="data plate">
+              <span>Registration:</span> A970J7E
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
