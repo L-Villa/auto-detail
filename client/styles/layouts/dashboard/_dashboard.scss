@@ -3,20 +3,27 @@
   height: 100vh;
   width: 100vw;
   display: flex;
+  background: rgb(250, 250, 250);
   .dashboard-content {
     position: relative;
+    background: none;
     margin: 2rem;
-    margin-top: 5rem;
+    margin-top: 7rem;
     flex-shrink: 2;
-    .dashboard-container {
-      display: flex;
-      flex-wrap: wrap;
-      .dashboard-card {
-        position: relative;
-        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
-        padding: 2rem;
-        margin: 1rem;
-        flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+    .dashboard-card {
+      position: relative;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
+      background: var(--color-white);
+      padding: 2rem;
+      &.user-card {
+        grid-column-start: 1;
+        grid-column-end: span 4;
+        grid-row-start: 1;
+        grid-row-end: span 1;
         h2 {
           font-size: 2.7rem;
           font-weight: 400;
@@ -30,35 +37,28 @@
           background: none;
           padding: 0;
         }
-        &.weather-card {
+      }
+      &.weather-card {
+        display: flex;
+        .date {
           display: flex;
-          .date {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 1rem;
-            .icon {
-              border: 2px solid var(--color-primary);
-              border-radius: 20%;
-              height: 40px;
-              width: 40px;
-            }
-            .num {
-              font-size: 1.5rem;
-              font-weight: 600;
-            }
+          flex-direction: column;
+          align-items: center;
+          margin: 1rem;
+          .icon {
+            border: 2px solid var(--color-primary);
+            border-radius: 20%;
+            height: 40px;
+            width: 40px;
+          }
+          .num {
+            font-size: 1.5rem;
+            font-weight: 600;
           }
         }
       }
-      .history-card {
-        position: relative;
-        .heading {
-          font-size: 1.3rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
+      &.history-card {
         table {
-          // border-spacing: 0 1rem;
           border-collapse: collapse;
           tr {
             &:nth-of-type(2n + 1) {
@@ -92,70 +92,80 @@
             }
           }
         }
-        .vehicle {
+      }
+      &.vehicle-card {
+        position: relative;
+        display: flex;
+        grid-column-start: 1;
+        grid-column-end: span 4;
+        grid-row-start: 2;
+        grid-row-end: span 6;
+        padding: 0;
+        .car {
           position: relative;
-          display: flex;
-          .car {
-            position: relative;
-            width: 700px;
-            height: 500px;
-            .title {
-              line-height: 1;
-              font-weight: 600;
-              color: var(--color-primary);
-              font-size: 1.5rem;
-            }
-            .subtitle {
-              color: gray;
-            }
-            .stats {
-              margin: 2rem;
-              display: flex;
-              justify-content: center;
-              .block {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                margin-right: 1.5rem;
-                font-size: 1.2rem;
-                h4 {
-                  font-weight: 600;
-                  font-size: 2.3rem;
-                  line-height: 1;
-                  color: var(--color-primary);
-                }
-                .sub {
-                  color: gray;
-                }
-              }
-            }
-            img {
-              transform: scaleX(-1);
-            }
-            .buttons {
-              display: flex;
-              justify-content: center;
-            }
+          padding: 2rem;
+          .title {
+            line-height: 1;
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 2rem;
           }
-          .info-container {
+          .subtitle {
+            font-size: 1.2rem;
+            color: gray;
+          }
+          .stats {
+            margin: 2rem;
             display: flex;
-            flex-direction: column;
-            .calendar {
-              background: rgb(221, 221, 221);
-              flex-grow: 1.4;
-            }
-            .information {
-              background: var(--color-primary);
+            justify-content: center;
+            .block {
               display: flex;
               flex-direction: column;
-              padding: 1.5rem;
-              flex-grow: 0.6;
-              .data {
-                font-size: 1rem;
-                color: var(--color-white);
-                line-height: 0.9;
-                margin: 0.4rem 0;
+              justify-content: center;
+              align-items: center;
+              margin-right: 1.5rem;
+              font-size: 1.2rem;
+              h4 {
+                font-weight: 600;
+                font-size: 2.3rem;
+                line-height: 1;
+                color: var(--color-primary);
+              }
+              .sub {
+                color: gray;
+              }
+            }
+          }
+          img {
+            transform: scaleX(-1);
+          }
+          .buttons {
+            display: flex;
+            justify-content: center;
+          }
+        }
+        .info-container {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          .calendar {
+            background: rgb(221, 221, 221);
+            flex-grow: 1.4;
+          }
+          .information {
+            background: var(--color-primary);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            flex-grow: 0.6;
+            .data {
+              font-size: 1rem;
+              color: var(--color-white);
+              line-height: 0.9;
+              margin: 0.4rem 0;
+              span {
+                font-weight: 600;
+                color: rgb(204, 204, 204);
               }
             }
           }

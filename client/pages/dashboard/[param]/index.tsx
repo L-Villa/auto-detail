@@ -17,15 +17,27 @@ const Param = () => {
 
 const Home = () => {
   return (
-    <div className="dashboard-container">
-      <QuickOrder />
+    <>
+      <User />
+      <Vehicles />
       <Weather />
       <History />
-      <Vehicles />
-    </div>
+    </>
   );
 };
 
+const User = () => {
+  return (
+    <div className="dashboard-card user-card">
+      <h2>
+        Ready for your <br />
+        cars next wash?
+      </h2>
+      <p>Tell us a little bit about what your car needs.</p>
+      <button>Get Started --</button>
+    </div>
+  );
+};
 const QuickOrder = () => {
   return (
     <div className="dashboard-card quick-order-card">
@@ -94,8 +106,7 @@ const History = () => {
     },
   ]);
   return (
-    <div className="history-card">
-      <div className="heading">Transaction History</div>
+    <div className="dashboard-card history-card">
       <table>
         <tr>
           <th className="data">#</th>
@@ -127,50 +138,48 @@ const Vehicles = () => {
     "Thur",
   ]);
   return (
-    <div className="history-card">
-      <div className="heading">Vehicles</div>
-      <div className="vehicle">
-        <div className="car">
-          <div className="title">Custom Car Name</div>
-          <div className="subtitle">7XLE408</div>
-          <div className="stats">
-            <div className="block">
-              <div className="sub">Times washed</div>
-              <h4>12</h4>
-            </div>
-            <div className="block">
-              <div className="sub">Days since last wash</div>
-              <h4>3</h4>
-            </div>
-            <div className="block">
-              <div className="sub">Days since last wash</div>
-              <h4>3</h4>
-            </div>
+    <div className="dashboard-card vehicle-card">
+      <div className="car">
+        <div className="title">Custom Car Name</div>
+        <div className="subtitle">L1C3NSE</div>
+        <div className="stats">
+          <div className="block">
+            <div className="sub">Times washed</div>
+            <h4>12</h4>
           </div>
-          <img src="/assets/images/astonMartin.png"></img>
-          <div className="buttons">
-            <button className="filled">Wash Now</button>
-            <button className="border">Edit Vehicle</button>
+          <div className="block">
+            <div className="sub">Days since last wash</div>
+            <h4>3</h4>
+          </div>
+          <div className="block">
+            <div className="sub">Days since last wash</div>
+            <h4>3</h4>
           </div>
         </div>
-        <div className="info-container">
-          <div className="calendar"></div>
-          <div className="information">
-            <div className="data type">
-              <span>Year:</span> 2020
-            </div>
-            <div className="data plate">
-              <span>Make:</span> Toyota
-            </div>
-            <div className="data plate">
-              <span>Model:</span> Camry
-            </div>
-            <div className="data plate">
-              <span>Registration:</span> A970J7E
-            </div>
+        <img src="/assets/images/astonMartin.png"></img>
+        <div className="buttons">
+          <button className="filled">Wash Now</button>
+          <button className="border">Edit Vehicle</button>
+        </div>
+      </div>
+      <div className="info-container">
+        <div className="calendar"></div>
+        <div className="information">
+          <div className="data type">
+            <span>Year:</span> 2020
+          </div>
+          <div className="data plate">
+            <span>Make:</span> Toyota
+          </div>
+          <div className="data plate">
+            <span>Model:</span> Camry
+          </div>
+          <div className="data plate">
+            <span>Registration:</span> A970J7E
           </div>
         </div>
       </div>
+      {/* </div> */}
     </div>
   );
 };
