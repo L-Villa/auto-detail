@@ -40,20 +40,80 @@
       }
       &.weather-card {
         display: flex;
-        .date {
+        flex-direction: column;
+        justify-content: center;
+        grid-column-start: -2;
+        grid-column-end: span -1;
+        grid-row-start: 1;
+        grid-row-end: span 2;
+        .top {
           display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin: 1rem;
-          .icon {
-            border: 2px solid var(--color-primary);
-            border-radius: 20%;
-            height: 40px;
-            width: 40px;
+          margin-bottom: 2rem;
+          padding-bottom: 2rem;
+          border-bottom: 1px solid rgb(221, 221, 221);
+          justify-content: space-between;
+          .heading {
+            .location {
+              font-size: 3rem;
+              line-height: 1;
+              color: var(--color-primary);
+            }
+            .date {
+              font-size: 1;
+              margin-bottom: 0.7rem;
+              color: grey;
+            }
+            .heading-icon {
+              width: 75px;
+              height: 75px;
+              background: var(--color-primary);
+            }
           }
-          .num {
-            font-size: 1.5rem;
-            font-weight: 600;
+          .temp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .current {
+              font-size: 7rem;
+              line-height: 1;
+            }
+            .range {
+              display: flex;
+              .high {
+                margin: 0 0.3rem;
+                font-size: 1.3rem;
+                color: var(--color-primary);
+              }
+              .divider {
+                margin: 0 0.3rem;
+                font-size: 1.3rem;
+                color: var(--color-primary);
+              }
+              .low {
+                margin: 0 0.3rem;
+                font-size: 1.3rem;
+                color: gray;
+              }
+            }
+          }
+        }
+        .weekly {
+          display: flex;
+          justify-content: space-between;
+          .date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .icon {
+              border: 2px solid var(--color-primary);
+              border-radius: 20%;
+              height: 40px;
+              width: 40px;
+            }
+            .num {
+              font-size: 1.5rem;
+              font-weight: 600;
+            }
           }
         }
       }
@@ -116,6 +176,7 @@
           }
           .stats {
             margin: 2rem;
+            margin-top: 5rem;
             display: flex;
             justify-content: center;
             .block {
@@ -124,10 +185,10 @@
               justify-content: center;
               align-items: center;
               margin-right: 1.5rem;
-              font-size: 1.2rem;
+              font-size: 1.1rem;
               h4 {
                 font-weight: 600;
-                font-size: 2.3rem;
+                font-size: 3rem;
                 line-height: 1;
                 color: var(--color-primary);
               }

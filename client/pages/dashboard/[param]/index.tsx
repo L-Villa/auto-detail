@@ -63,13 +63,30 @@ const Weather = () => {
   ]);
   return (
     <div className="dashboard-card weather-card">
-      {days.map((day, index) => (
-        <div className="date" key={index}>
-          <div className="icon"></div>
-          <div className="num">{25 + index}</div>
-          <div className="day">{day}</div>
+      <div className="top">
+        <div className="heading">
+          <div className="location">San Francisco</div>
+          <div className="date">December 17, 2022</div>
+          <div className="heading-icon"></div>
         </div>
-      ))}
+        <div className="temp">
+          <div className="current">75</div>
+          <div className="range">
+            <div className="high">70</div>
+            <div className="divider">/</div>
+            <div className="low">80</div>
+          </div>
+        </div>
+      </div>
+      <div className="weekly">
+        {days.map((day, index) => (
+          <div className="date" key={index}>
+            <div className="icon"></div>
+            <div className="num">{25 + index}</div>
+            <div className="day">{day}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -179,7 +196,6 @@ const Vehicles = () => {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 };
