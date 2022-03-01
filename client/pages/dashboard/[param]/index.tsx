@@ -29,12 +29,11 @@ const Home = () => {
 const User = () => {
   return (
     <div className="dashboard-card user-card">
-      <h2>
-        Ready for your <br />
-        cars next wash?
-      </h2>
-      <p>Tell us a little bit about what your car needs.</p>
-      <button>Get Started --</button>
+      <div className="picture"></div>
+      <div className="user-identity">
+        <div className="name">Some Name</div>
+        <div className="id">#39022</div>
+      </div>
     </div>
   );
 };
@@ -113,6 +112,62 @@ const History = () => {
       name: "Gold",
       vehicle: "Red Electric",
       amount: 60,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
+    },
+    {
+      id: 3678,
+      type: "wash",
+      name: "Gold",
+      vehicle: "Red Electric",
+      amount: 40,
     },
     {
       id: 3678,
