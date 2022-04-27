@@ -2,14 +2,23 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../../../layouts/dashboard/Layout";
 
+const routes = (route: string | string[] | undefined) => {
+  switch (route) {
+    case "home":
+      return <Home />;
+    case "vehicles":
+      return <VehiclesPage />;
+    default:
+      return <Home />;
+  }
+};
+
 const Param = () => {
   const { query } = useRouter();
   return (
     <div className="dashboard">
       <Layout>
-        <section className="dashboard-content">
-          {query.param === "home" && <Home />}
-        </section>
+        <section className="dashboard-content">{routes(query.param)}</section>
       </Layout>
     </div>
   );
@@ -26,6 +35,14 @@ const Home = () => {
   );
 };
 
+const VehiclesPage = () => {
+  return (
+    <>
+      <Vehicles />
+    </>
+  );
+};
+
 const User = () => {
   return (
     <div className="dashboard-card user-card">
@@ -37,6 +54,7 @@ const User = () => {
     </div>
   );
 };
+
 const QuickOrder = () => {
   return (
     <div className="dashboard-card quick-order-card">
